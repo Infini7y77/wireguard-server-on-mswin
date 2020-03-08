@@ -1,0 +1,22 @@
+#Server Config
+[Interface]
+PrivateKey = Dont+Use+This+As+Production+PrivateKey+0000=
+# PublicKey given to clients:
+# 3ggk2YyTNUyCKA8DoUNx3x07XV0Lvjy8tYjru/yOlgM=
+ListenPort = 51820
+Address = 192.168.222.1/24
+DNS = 192.168.222.1, 192.168.1.1
+
+[Peer]
+# Client: TESTING
+PublicKey = Update+This+PublicKey+000000000000000000000=
+PresharedKey = Update+This+GARBLEgarbleGarble+blahblahblah=
+AllowedIPs = 192.168.222.101/32
+
+# TEMPLATE
+#[Peer]
+## Client: <name>
+#PublicKey = Update+This+PublicKey+000000000000000000000=
+#PresharedKey = Update+This+GARBLEgarbleGarble+blahblahblah=
+#AllowedIPs = 192.168.222.1xx/32
+
