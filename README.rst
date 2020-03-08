@@ -1,13 +1,8 @@
-================================
-Wireguard on Windows
-================================
-:by: harland.coles@energy-x.com
-:dt: 2020-03-06
-:licence: CC-BY
-
 
 Wireguard on Windows
 =========================
+:dt: 2020-03-06
+:licence: CC-BY
 
 Introduction
 ---------------
