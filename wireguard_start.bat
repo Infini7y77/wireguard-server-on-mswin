@@ -54,7 +54,7 @@ call :sleepN 2
 
 call :logger "Setup Wireguard Adapter"
 SET _ps_script=%_wg_service_dir%\setup_wireguard_adapter.ps1
-%_powershell_% -NoProfile -ExecutionPolicy Bypass -Command "& '%_ps_script%'" -ifname "%_wg_ifname%" -enable 1 -basedir "%_wg_service_dir" >> "%_logfile%"
+%_powershell_% -NoProfile -ExecutionPolicy Bypass -Command "& '%_ps_script%'" -ifname "%_wg_ifname%" -enable 1 -basedir "%_wg_service_dir%" >> "%_logfile%"
 
 
 :: #-----------------------------------------------------

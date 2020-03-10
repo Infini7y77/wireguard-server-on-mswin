@@ -23,9 +23,9 @@ Install
 ---------------
 1. Download and Install latest windows package from wireguard_, at: https://download.wireguard.com/windows-client/
 
-2. Copy (or git clone) repo files into, say, C:\wireguard\
+2. Copy (or git clone) repo files into, say, ``C:\wireguard\``
 
-3. Update configuration files and batch scripts
+3. **Update configuration files and batch scripts**
 	- wg0_server.conf -- your server's adapter / interface config
 		- note: name of file becomes adapter name (without '.conf')
 	- wireguard_start.bat
@@ -36,8 +36,9 @@ Install
 
 Usage
 ---------------
-Start server with batch script 'wireguard_start.bat'
-Stop server with batch script 'wireguard_stop.bat'
+- Start server with batch script 'wireguard_start.bat'
+- Stop server with batch script 'wireguard_stop.bat'
+- Note: *Batch scripts need to be run with administrator privilege*
 
 
 Deployment
