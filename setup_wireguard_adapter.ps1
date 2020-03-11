@@ -14,15 +14,17 @@ Param (
 if ($enable){
 	# Update Network Profile to 'Private'
 	$NetworkProfile = Get-NetConnectionProfile -InterfaceAlias $ifname
-	$NetworkProfile.NetworkCategory = "Private"
-	Set-NetConnectionProfile -InputObject $NetworkProfile
+	if ($NetworkProfile.NetworkCategory -ne "Private"){
+		$NetworkProfile.NetworkCategory = "Private"
+		Set-NetConnectionProfile -InputObject $NetworkProfile
+	}
 
 	sleep -Seconds 2
 }
 
 # Setup Network Sharing
-Import-Module -Name $basedir\netconnectshare.psm1
+Import-Module -Name $basedir\netconnectionsharing.psm1
 
-Set-NetConnectionSharing $ifname $enable
+Set-MrInternetConnectionSharing -InternetInterfaceName Ethernet -LocalInterfaceName $ifname -Enabled $enable
 
 #eof

@@ -22,10 +22,12 @@ IF %_flag_debug% EQU 1 SET _flag_verbose=1
 IF %_flag_debug% EQU 1 SET _flag_exit_pause=1
 call :debug "-x-x- DEBUG IS ON -x-x-"
 
+SET _service_base_dir=C:
+
 :: #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
 :: Config for service
 SET _service_name=wireguard
-SET _service_dir=C:\%_service_name%
+SET _service_dir=%_service_base_dir%\%_service_name%
 SET _logfile=%_service_dir%\%_service_name%_service_%DATE%.log
 call :logger "--MARKER-- Calling script: %thisName% (%*)"
 
@@ -51,6 +53,7 @@ call :logger "Starting Wireguard Service / Interface:  %_wg_ifname%"
 %_wireguard_% /installtunnelservice "%_wg_conf_fp%" >> "%_logfile%"
 
 call :sleepN 2
+%_wireguard_% /dumplog "%_service_dir%\%_service_name%_dumplog.log"
 
 call :logger "Setup Wireguard Adapter"
 SET _ps_script=%_wg_service_dir%\setup_wireguard_adapter.ps1

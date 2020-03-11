@@ -46,6 +46,17 @@ Deployment
 May setup scheduled task(s) to run start/stop batch script
 
 
+BUGS
+---------------
+An odd bug has crept in, at first everything worked well, but now the ICS fails
+where it is unable to share the 'private' side of the share,
+that is the wireguard adapter will not 'attach' to 'public' ethernet adapter.
+Looking in ethernet adapter properties, sharing is enabled, but wireguard adapter not selected.
+Looking in wireguard adapter properties, under IPv4 item, IP and subnet is blank.
+However looking at wireguard adapter Status details... IP is set correctly.
+Not sure if a wireguard.exe issue on adapter setup, or a Windows bug on starting and stopping too many times.
+**YMMV**.
+
 Licence
 ---------------
 https://opensource.org/licenses/MIT with Copyright 2020 H.R.Coles
