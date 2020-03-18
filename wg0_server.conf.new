@@ -1,11 +1,15 @@
-#Server Config
+# Server Config
 [Interface]
 PrivateKey = Dont+Use+This+As+Production+PrivateKey+0000=
 # PublicKey given to clients:
 # 3ggk2YyTNUyCKA8DoUNx3x07XV0Lvjy8tYjru/yOlgM=
 ListenPort = 51820
 Address = 192.168.222.1/24
-DNS = 192.168.222.1, 192.168.1.1
+#DNS = 192.168.222.1, 192.168.1.1
+# Caution: enabling DNS seems to install firewall drop target for all other UDP:53
+#   may not be what you want on Server end
+
+
 
 [Peer]
 # Client: TESTING
