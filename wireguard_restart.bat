@@ -1,6 +1,6 @@
 :: Command Script
 :: by: harland.coles@energy-x.com
-:: dt: 2020-03-05
+:: dt: 2020-03-18
 :: licence: https://opensource.org/licenses/MIT with Copyright 2020 H.R.Coles
 
 @ECHO OFF
@@ -34,25 +34,13 @@ SET _service_dir=%_service_base_dir%\%_service_name%
 SET _logfile=%_service_dir%\%_service_name%_service_%DATE%.log
 call :logger "--MARKER-- Calling script: %thisName% (%*)"
 
-SET _wg_ifname=wg0_server
-SET _wg_ipv4addr=192.168.222.1
+call :logger "Restarting Wireguard service..."
 
-SET _wg_service_dir=%_service_dir%
-SET _wg_conf_fn=%_wg_ifname%.conf
-SET _wg_conf_fp=%_wg_service_dir%\%_wg_conf_fn%
+call %_service_dir%\%_service_name%_stop.bat --no-exit
 
-:: # Teardown Sharing
-call :logger "Teardown of adapter: %_wg_ifname%"
-SET _ps_script=%_wg_service_dir%\setup_wireguard_adapter.ps1
-%_powershell_% -NoProfile -ExecutionPolicy Bypass -Command "& '%_ps_script%'" -ifname "%_wg_ifname%" -enable 0 -basedir %_wg_service_dir% >> "%_logfile%"
+call %_service_dir%\%_service_name%_start.bat --no-exit
 
-:: # Stop Wireguard server
-call :logger "Stopping Wireguard Service / Interface:  %_wg_ifname%"
-%_wireguard_% /uninstalltunnelservice "%_wg_ifname%" >> "%_logfile%"
-
-call :sleepN 2
-%_wireguard_% /dumplog "%_service_dir%\%_service_name%_dumplog.log"
-
+call :logger "Restart Complete."
 
 :: #-----------------------------------------------------
 :: # SUBROUTINES
