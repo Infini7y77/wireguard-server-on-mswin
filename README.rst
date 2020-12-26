@@ -17,6 +17,7 @@ Reference
 ---------------
 .. _how-to: https://www.henrychang.ca/how-to-setup-wireguard-vpn-server-on-windows/
 .. _wireguard: https://wireguard.com
+.. _known-bugs: https://github.com/Infini7y77/wireguard-server-on-mswin/blob/master/known_bugs.rst
 
 
 Install
@@ -48,7 +49,7 @@ May setup scheduled task(s) to run start/stop batch script
 
 BUGS
 ---------------
-refer: known_bugs.rst
+refer: known-bugs_
 
 Licence
 ---------------
